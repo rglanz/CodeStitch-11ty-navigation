@@ -2,6 +2,8 @@
 
 ![3tQpYbY3nrYrXOGGLK5Yl8Ok9GSnEpho3yPMHiBu](https://github.com/rglanz/CodeStitch-11ty-navigation/assets/42592799/bfe4f247-2e4a-4d96-93c9-34b0354e512f)
 
+### [Live Preview](https://master--dulcet-jelly-7e5c74.netlify.app/)
+
 This is a fully functioning, 11ty-generated static site with a navigation bar from [CodeStitch](https://codestitch.app/).
 
 I use LESS as a CSS preprocessor. I recommend [EasyLess](https://marketplace.visualstudio.com/items?itemName=mrcrowl.easy-less) as a VSCode extension. This plugin also integrates [autoprefixer](https://github.com/postcss/autoprefixer) to make sure your CSS is compliant across browsers.
