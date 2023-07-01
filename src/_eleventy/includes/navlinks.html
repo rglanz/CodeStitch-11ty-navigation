@@ -1,0 +1,70 @@
+
+{% set navPages = collections.all | eleventyNavigation %}
+
+{% for entry in navPages %}
+
+  {# Check if page is active #}
+  {% set active = false %}
+  {% if entry.url == page.url %}
+    {% set active = true %}
+  {% endif %}
+  
+    {# Child page, don't render #}
+    {% if entry.parent %}
+
+    {# Orphan page, render plain link #}
+    {% elif(not entry.parent) and (entry.children | length == 0) %}
+    <li class="cs-li">
+      <a 
+        href="{{entry.url}}" 
+          {% if active %}
+            class="cs-li-link cs-active"
+          {% else %}
+            class="cs-li-link"
+          {% endif %} >
+        {{ entry.key }}
+      </a>
+    </li>
+    
+    {# Parent page, render list #}
+    {% else %}
+    <li class="cs-li cs-dropdown" tabindex="0">
+
+        {# Underline the parent page if a child is active #}
+        {% set hasActiveChild = false %}
+        {% for child in entry.children %}
+            {% if child.url == page.url %}
+                {% set hasActiveChild = true %}
+            {% endif %}
+        {% endfor %}
+
+        <span 
+            {% if hasActiveChild %}
+                class="cs-li-link cs-active"
+            {% else %}
+                class="cs-li-link"
+            {% endif %} >
+                {{ entry.key }}
+    
+        <img
+            class="cs-drop-icon"
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg"
+            alt="dropdown icon"
+            width="15"
+            height="15"
+            decoding="async"
+            aria-hidden="true"
+        />
+        </span>
+
+        <ul class="cs-drop-ul">
+            {% for child in entry.children %}
+                <li class="cs-drop-li">
+                    <a href="{{ child.url }}" class="cs-li-link cs-drop-link">{{ child.key }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </li>
+
+    {% endif %}
+{% endfor %}

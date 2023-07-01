@@ -1,0 +1,17 @@
+{
+  "name": "CodeStitch-11ty-navigation",
+  "version": "1.0.0",
+  "description": "11ty integration with CodeStitch navigation bar template",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "author": "Ryan Glanz",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-navigation": "^0.3.5",
+    "@11ty/eleventy-server-browsersync": "^1.0.2"
+  }
+}
